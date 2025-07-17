@@ -576,19 +576,31 @@ deb $INPUT_MODE_VALUE $G_DISTRO_NAME-backports main contrib non-free' > /etc/apt
 
 			local usercmd=('useradd' '-m')
 			getent passwd "$INPUT_MODE_VALUE" > /dev/null && usercmd=('usermod')
+
+			G_DIETPI-NOTIFY 3 'usercmd = ${usercmd[@]}'
+
 			"${usercmd[@]}" "$INPUT_MODE_VALUE" -p "$GLOBAL_PW" -s /bin/bash
+
+			G_DIETPI-NOTIFY 3 'password change success'
 
 			# Copy root profile/bashrc
 			[[ -f '/root/.profile' ]] && G_EXEC cp /root/.profile "/home/$INPUT_MODE_VALUE/"
 			[[ -f '/root/.bashrc' ]] && G_EXEC cp /root/.bashrc "/home/$INPUT_MODE_VALUE/"
 
+			G_DIETPI-NOTIFY 3 'profile/bashrc copy success'
+
 			G_EXEC chown -R "$INPUT_MODE_VALUE:$INPUT_MODE_VALUE" "/home/$INPUT_MODE_VALUE"
+
+			G_DIETPI-NOTIFY 3 'chown success'
 
 			# Allow sudo without password
 			umask 0337
 			[[ -f /etc/sudoers.d/$INPUT_MODE_VALUE ]] && G_EXEC chmod 0440 "/etc/sudoers.d/$INPUT_MODE_VALUE"
 			echo "$INPUT_MODE_VALUE ALL=(ALL:ALL) NOPASSWD: ALL" > "/etc/sudoers.d/$INPUT_MODE_VALUE"
 			umask 0022
+
+			G_DIETPI-NOTIFY 3 'sudoers modification success'
+
 		else
 			Unknown_Input_Mode
 		fi

@@ -1719,7 +1719,7 @@ _EOF_
 		G_EXEC usermod -d /root -s /bin/bash root
 		G_EXEC eval 'chpasswd <<< '\''root:dietpi'\'
 
-#		G_EXEC_DESC='Creating DietPi user account' G_EXEC /boot/dietpi/func/dietpi-set_software useradd dietpi
+		G_EXEC_DESC='Creating printer user account' G_EXEC /boot/dietpi/func/dietpi-set_software useradd printer
 
 		G_DIETPI-NOTIFY 2 'Removing misc files/folders/services, not required by DietPi'
 
