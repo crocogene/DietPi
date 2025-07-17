@@ -208,7 +208,7 @@ CONFIG_CHECK_APT_UPDATES=0
 CONFIG_NTP_MODE=2
 
 # Serial Console: Set to 0 if you do not require serial console.
-CONFIG_SERIAL_CONSOLE_ENABLE=1
+CONFIG_SERIAL_CONSOLE_ENABLE=0
 
 # Sound card
 CONFIG_SOUNDCARD=none
