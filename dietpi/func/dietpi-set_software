@@ -583,6 +583,9 @@ deb $INPUT_MODE_VALUE $G_DISTRO_NAME-backports main contrib non-free' > /etc/apt
 
 			G_DIETPI-NOTIFY 3 'password change success'
 
+			# Create user directory
+			[[ -d "/home/$INPUT_MODE_VALUE" ]] || G_EXEC mkdir /home/$INPUT_MODE_VALUE # Failsafe
+
 			# Copy root profile/bashrc
 			[[ -f '/root/.profile' ]] && G_EXEC cp /root/.profile "/home/$INPUT_MODE_VALUE/"
 			[[ -f '/root/.bashrc' ]] && G_EXEC cp /root/.bashrc "/home/$INPUT_MODE_VALUE/"
