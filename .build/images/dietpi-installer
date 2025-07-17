@@ -31,6 +31,14 @@
 	# Core globals
 	G_PROGRAM_NAME='DietPi-Installer'
 
+	# Automate the script for vanilla debian K1
+	GITOWNER='crocogene'
+	GITBRANCH='master'
+	IMAGE_CREATOR='crocogene'
+	PREIMAGE_INFO='k1-debian'
+	WIFI_REQUIRED=1
+	DISTRO_TARGET=7
+
 	# Input variables
 	[[ $TEST_KERNEL == 1 ]] || TEST_KERNEL=0
 	[[ $TEST_UBOOT == 1 ]] || TEST_UBOOT=0
@@ -225,6 +233,9 @@ _EOF_
 		elif [[ $G_HW_ARCH_NAME == 'riscv64' ]]
 		then
 			G_HW_ARCH=11
+		elif [[ $G_HW_ARCH_NAME == 'mips' ]]
+		then
+			G_HW_ARCH=99
 		else
 			G_DIETPI-NOTIFY 1 "Unsupported CPU architecture: \"$G_HW_ARCH_NAME\". Aborting...\n"
 			exit 1
@@ -1707,7 +1718,7 @@ _EOF_
 		G_EXEC usermod -d /root -s /bin/bash root
 		G_EXEC eval 'chpasswd <<< '\''root:dietpi'\'
 
-		G_EXEC_DESC='Creating DietPi user account' G_EXEC /boot/dietpi/func/dietpi-set_software useradd dietpi
+		G_EXEC_DESC='Creating DietPi user account' G_EXEC /boot/dietpi/func/dietpi-set_software useradd printer
 
 		G_DIETPI-NOTIFY 2 'Removing misc files/folders/services, not required by DietPi'
 
