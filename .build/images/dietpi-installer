@@ -39,6 +39,7 @@
 	HW_MODEL='22'
 	WIFI_REQUIRED=1
 	DISTRO_TARGET=7
+	DIETPI_USER=printer
 
 	# Input variables
 	[[ $TEST_KERNEL == 1 ]] || TEST_KERNEL=0
@@ -1719,7 +1720,7 @@ _EOF_
 		G_EXEC usermod -d /root -s /bin/bash root
 		G_EXEC eval 'chpasswd <<< '\''root:dietpi'\'
 
-		G_EXEC_DESC='Creating printer user account' G_EXEC /boot/dietpi/func/dietpi-set_software useradd printer
+		G_EXEC_DESC="Creating $DIETPI_USER user account" G_EXEC /boot/dietpi/func/dietpi-set_software useradd $DIETPI_USER
 
 		G_DIETPI-NOTIFY 2 'Removing misc files/folders/services, not required by DietPi'
 
@@ -1910,7 +1911,7 @@ _EOF_
 		G_EXEC mkdir -p /var/lib/dietpi/{postboot.d,dietpi-software/installed}
 		G_EXEC mkdir -p /var/tmp/dietpi/logs/dietpi-ramlog_store
 		G_EXEC mkdir -p /mnt/{dietpi_userdata,samba,ftp_client,nfs_client}
-		G_EXEC chgrp -R printer /mnt/{dietpi_userdata,samba,ftp_client,nfs_client}
+		G_EXEC chgrp -R $DIETPI_USER /mnt/{dietpi_userdata,samba,ftp_client,nfs_client}
 		G_EXEC find /mnt/{dietpi_userdata,samba,ftp_client,nfs_client} -type d -exec chmod 0775 {} +
 
 		#-----------------------------------------------------------------------------------
