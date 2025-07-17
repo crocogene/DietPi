@@ -577,12 +577,9 @@ deb $INPUT_MODE_VALUE $G_DISTRO_NAME-backports main contrib non-free' > /etc/apt
 			[[ $GLOBAL_PW ]] || GLOBAL_PW='dietpi'
 
 			local usercmd=('useradd' '-m')
-			getent passwd "$INPUT_MODE_VALUE" > /dev/null && usercmd=('usermod')
+			getent passwd "$INPUT_MODE_VALUE" > /dev/null && G_EXEC userdel -r -f "$INPUT_MODE_VALUE"
 
 			"${usercmd[@]}" "$INPUT_MODE_VALUE" -p "$GLOBAL_PW" -s /bin/bash
-
-			# Create user directory
-			[[ -d "/home/$INPUT_MODE_VALUE" ]] || G_EXEC mkdir /home/$INPUT_MODE_VALUE # Failsafe
 
 			# Copy root profile/bashrc
 			[[ -f '/root/.profile' ]] && G_EXEC cp /root/.profile "/home/$INPUT_MODE_VALUE/"
