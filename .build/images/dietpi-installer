@@ -39,7 +39,6 @@
 	HW_MODEL='22'
 	WIFI_REQUIRED=1
 	DISTRO_TARGET=7
-	DIETPI_USER=printer
 
 	# Input variables
 	[[ $TEST_KERNEL == 1 ]] || TEST_KERNEL=0
@@ -187,10 +186,6 @@ _EOF_
 	G_GITOWNER=$GITOWNER
 	G_GITBRANCH=$GITBRANCH
 	unset -v GITOWNER GITBRANCH
-
-	# Apply username
-	G_DIETPI_USER=$DIETPI_USER
-	unset -v DIETPI_USER
 
 	# Detect the distro version of this operating system
 	read -r distro < /etc/debian_version

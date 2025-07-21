@@ -57,8 +57,8 @@
 	[[ $G_DIETPI_VERSION_SUB ]] || G_DIETPI_VERSION_SUB=14
 	[[ $G_DIETPI_VERSION_RC ]] || G_DIETPI_VERSION_RC=2
 	[[ $G_GITBRANCH ]] || G_GITBRANCH='master'
-	[[ $G_GITOWNER ]] || G_GITOWNER='MichaIng'
-	[[ $G_DIETPI_USER ]] || G_DIETPI_USER='dietpi'
+	[[ $G_GITOWNER ]] || G_GITOWNER='crocogene'
+	[[ $G_DIETPI_USER ]] || G_DIETPI_USER='printer'
 	# - Save current version and Git branch
 	G_VERSIONDB_SAVE(){
 
