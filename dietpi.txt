@@ -125,7 +125,7 @@ AUTO_SETUP_AUTOSTART_LOGIN_USER=printer
 ##### Non-interactive first run setup #####
 # On first boot, run updates, initial setup, and optional software installs without any user interaction.
 # - Please change AUTO_SETUP_GLOBAL_PASSWORD when enabling this option!
-AUTO_SETUP_AUTOMATED=1
+AUTO_SETUP_AUTOMATED=0
 
 # Software to automatically install
 # - Requires AUTO_SETUP_AUTOMATED=1
