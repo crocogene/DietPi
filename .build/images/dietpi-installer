@@ -38,7 +38,7 @@
 	PREIMAGE_INFO='k1-debian'
 	HW_MODEL='22'
 	WIFI_REQUIRED=1
-	DISTRO_TARGET=7
+	DISTRO_TARGET=8
 
 	# Input variables
 	[[ $TEST_KERNEL == 1 ]] || TEST_KERNEL=0
@@ -998,9 +998,9 @@ setenv rootuuid "true"' /boot/boot.cmd
 			'procps'		# "kill", "ps", "pgrep", "sysctl", used by several DietPi scripts
 			'psmisc'		# "killall", used by several DietPi scripts
 			'sudo'			# Root permission wrapper for users permitted via /etc/sudoers(.d/)
-			"systemd-sysv/$DISTRO_TARGET_NAME-backports"		# Includes systemd and additional commands: "poweroff", "shutdown" etc.
+			"systemd-sysv"		# Includes systemd and additional commands: "poweroff", "shutdown" etc.
 			'tzdata'		# Time zone data for system clock, auto summer/winter time adjustment
-			"udev/$DISTRO_TARGET_NAME-backports"			# /dev/ and hotplug management daemon
+			"udev"			# /dev/ and hotplug management daemon
 			'wget'			# Download tool
 			'whiptail'		# DietPi dialogs
 		)
@@ -1056,7 +1056,7 @@ setenv rootuuid "true"' /boot/boot.cmd
 				'isc-dhcp-client'	# DHCP client
 				'kmod'			# "modprobe", "lsmod", used by several DietPi scripts
 				'rfkill' 		# Block/unblock WiFi and Bluetooth adapters, only installed once to unblock everything, purged afterwards!
-				"systemd-timesyncd/$DISTRO_TARGET_NAME-backports"	# Network time sync daemon
+				"systemd-timesyncd"	# Network time sync daemon
 				'usbutils'		# "lsusb", used by DietPi-Software + DietPi-BugReport
 			)
 
