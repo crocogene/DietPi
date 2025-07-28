@@ -38,7 +38,7 @@
 	PREIMAGE_INFO='k1-debian'
 	HW_MODEL='22'
 	WIFI_REQUIRED=1
-	DISTRO_TARGET=8
+	DISTRO_TARGET=7
 
 	# Input variables
 	[[ $TEST_KERNEL == 1 ]] || TEST_KERNEL=0
