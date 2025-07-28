@@ -993,14 +993,14 @@ setenv rootuuid "true"' /boot/boot.cmd
 			'iputils-ping'		# "ping" command
 			'locales'		# Support locales, used by dietpi-config > Language/Regional Options > Locale
 			'mawk'			# Minimal awk implementation
-			'nano'			# Simple text editor
+			'micro'			# Simple text editor / вместо nano
 			'parted'		# partprobe + drive partitioning, used by DietPi-Drive_Manager
 			'procps'		# "kill", "ps", "pgrep", "sysctl", used by several DietPi scripts
 			'psmisc'		# "killall", used by several DietPi scripts
 			'sudo'			# Root permission wrapper for users permitted via /etc/sudoers(.d/)
-			'systemd-sysv'		# Includes systemd and additional commands: "poweroff", "shutdown" etc.
+			"systemd-sysv/$DISTRO_TARGET_NAME-backports"		# Includes systemd and additional commands: "poweroff", "shutdown" etc.
 			'tzdata'		# Time zone data for system clock, auto summer/winter time adjustment
-			'udev'			# /dev/ and hotplug management daemon
+			"udev/$DISTRO_TARGET_NAME-backports"			# /dev/ and hotplug management daemon
 			'wget'			# Download tool
 			'whiptail'		# DietPi dialogs
 		)
@@ -1056,7 +1056,7 @@ setenv rootuuid "true"' /boot/boot.cmd
 				'isc-dhcp-client'	# DHCP client
 				'kmod'			# "modprobe", "lsmod", used by several DietPi scripts
 				'rfkill' 		# Block/unblock WiFi and Bluetooth adapters, only installed once to unblock everything, purged afterwards!
-				'systemd-timesyncd'	# Network time sync daemon
+				"systemd-timesyncd/$DISTRO_TARGET_NAME-backports"	# Network time sync daemon
 				'usbutils'		# "lsusb", used by DietPi-Software + DietPi-BugReport
 			)
 
