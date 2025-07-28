@@ -993,7 +993,7 @@ setenv rootuuid "true"' /boot/boot.cmd
 			'iputils-ping'		# "ping" command
 			'locales'		# Support locales, used by dietpi-config > Language/Regional Options > Locale
 			'mawk'			# Minimal awk implementation
-			'micro'			# Simple text editor / вместо nano
+			'ne'			# ne, the nice editor, instead of nano
 			'parted'		# partprobe + drive partitioning, used by DietPi-Drive_Manager
 			'procps'		# "kill", "ps", "pgrep", "sysctl", used by several DietPi scripts
 			'psmisc'		# "killall", used by several DietPi scripts
